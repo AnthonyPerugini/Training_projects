@@ -1,7 +1,9 @@
 def sun_angle(time):
     hh = int(time.split(":")[0])
     mm = int(time.split(":")[1])
-
-    if hh <= 6 or hh >= 18:
-        return str("I don't see the sun!")
+    total_minutes = (hh * 60) + mm
+    if total_minutes > 1080 or total_minutes < 360:
+        return "I don't see the sun!"
+    else:
+        return float((total_minutes - 360) / 4)
 
